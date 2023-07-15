@@ -3,3 +3,10 @@ resource "time_sleep" "wait_for_instance" {
 
   depends_on = [aws_instance.my_elk_instance]
 }
+resource "aws_instance" "myown" {
+  ami = "1a2b3c4d"
+  region = "us-east-1"
+}
+resource "aws_s3_bucket" "mywon" {
+  
+}
