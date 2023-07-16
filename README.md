@@ -11,3 +11,4 @@ git pull --rebase  #if there are other branches associated with the pull, this w
 
 # custom commit message:
 git config --global commit.template ~/.gitmessage
+create custom message and save in .gitmessage 
