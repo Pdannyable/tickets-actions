@@ -14,3 +14,11 @@ jobs:
         run: |
           node -v
           pwd
+  run-windows-commands:
+    runs-on: windows-latest
+    steps:
+      - name: Directory
+        run: Get-Location
+      - name: Directoru using bash
+        run: pwd
+        shell: bash
