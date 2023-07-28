@@ -1,5 +1,5 @@
 module.exports = {
-   branches: "main",
+   branches: "dev",
    repositoryUrl: "https://github.com/Pdannyable/tickets-actions.git",
    plugins: [
      '@semantic-release/commit-analyzer',
