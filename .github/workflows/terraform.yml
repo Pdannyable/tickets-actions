@@ -1,6 +1,7 @@
 name: Terraform
 
 on: [push]
+
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
@@ -11,12 +12,8 @@ jobs:
       contents: write
       issues: write
       pull-requests: write
+
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        shell: bash
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
