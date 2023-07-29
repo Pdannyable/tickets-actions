@@ -1,0 +1,45 @@
+name: Terraform
+
+on: [push]
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
+
+jobs:
+  terraform:
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Init
+        run: terraform init
+
+     # - name: fmt
+     #   run: terraform fmt -check
+
+      - name: validate
+        run: terraform validate
+
+      - name: plan
+        run: terraform plan
+
+      - name: apply
+        run: terraform apply -auto-approve
+
+      # - name: destroy
+      #  run: terraform destroy -auto-approve
+
+      - name: release
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
