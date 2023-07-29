@@ -6,6 +6,11 @@ terraform {
       version = "~> 3.0" # Optional but recommended in production
     }
   }
+  backend "s3" {
+    bucket = "upwindkops"
+    key = "dev/terraform.tfstate"
+    region = "us-east-1"
+  }
 }
 
 # Provider Block
@@ -17,10 +22,12 @@ provider "aws" {
 # Resource Block
 
 resource "aws_instance" "ec2demo" {
-  ami           = "ami-016eb5d644c333ccb" # Amazon Linux in us-west-2, update as per your region
+  ami           = "ami-016eb5d644c333ccb" # Amazon Linux in us-east-2, update as per your region
   instance_type = "t2.micro"
 
   tags = {
     Name = "myec2"
+    Division = "HR"
+    Location = "americas"
   }
 }
