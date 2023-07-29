@@ -1,5 +1,5 @@
 # Terraform Settings Block
-terraform {
+/*terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -12,7 +12,7 @@ terraform {
     region = "us-east-1"
   }
 }
-
+*/
 # Provider Block
 provider "aws" {
   profile = "perso" # AWS Credentials Profile configured on your local desktop terminal  $HOME/.aws/credentials
